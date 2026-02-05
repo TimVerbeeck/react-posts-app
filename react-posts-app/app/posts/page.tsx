@@ -9,11 +9,18 @@ export default async function Page(props: {
 }) {
     const searchParams = await props.searchParams;
     const query: string = searchParams?.query || '';
-    return(
-        <main>
-            <Search placeholder="Search post titles"/>
-            <Suspense fallback={<p>Loading...</p>}>
-                <PostsComponent  query={query}/>
+    return (<main className="max-w-4xl mx-auto px-4 py-10 space-y-8"> {/* Page Header */}
+            <div className="flex items-center justify-between">
+                <h1
+                    className="text-3xl font-bold tracking-tight">
+                    Posts
+                </h1>
+            </div>
+            <div className="bg-white shadow rounded p-4">
+                <Search placeholder="Search post titles"/>
+            </div>
+            <Suspense fallback={<p className="text-gray-500">Loading...</p>}>
+                <div className="bg-white shadow rounded p-6"><PostsComponent query={query}/></div>
             </Suspense>
         </main>
     );
