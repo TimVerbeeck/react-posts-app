@@ -1,11 +1,14 @@
 export type Post = {
+    userid: number;
     id: number;
     title: string;
-    details: string;
+    body: string;
 };
 
 export type Comment = {
+    postid: number;
     id: number;
-    detail: string;
-    postId: number;
+    name: string;
+    email: number;
+    body: string;
 };
