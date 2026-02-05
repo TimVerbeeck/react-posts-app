@@ -4,9 +4,7 @@ import {fetchPostById, fetchPostcomments} from "@/lib/data";
 export default async function Page({params}: { params: { id: string } }) {
     const {id} = await params;
     const post = await fetchPostById(id);
-    console.log(post);
     const comments = await fetchPostcomments(id);
-    console.log(comments);
 
     return (<main className="max-w-3xl mx-auto py-10 px-4">
         <Link href="/posts"
