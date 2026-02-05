@@ -1,12 +1,11 @@
 import {fetchPosts} from "@/lib/data";
 import Link from "next/dist/client/link";
 
-export default async function PostsComponent() {
-    const posts = await fetchPosts();
+export default async function PostsComponent({query }:{query:string}) {
+    const posts = await fetchPosts(query);
 
     return (
         <main>
-            <input id="postSearch" placeholder="Search post titles"/>
             <ul>
                 {posts?.map(post => (
                     <li key={post.id}>
